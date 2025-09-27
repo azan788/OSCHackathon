@@ -1,4 +1,5 @@
 # Compiler and flags
+
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -Iicalendarlib
 
@@ -24,6 +25,12 @@ $(TARGET): $(OBJ)
 test: $(TARGET)
 	./$(TARGET) icalendarlib/calendar.ics test_output.json list 20250101T000000 20251231T235959
 
+add: $(TARGET)
+	./$(TARGET) icalendarlib/calendar.ics "style" 20250927T000000 20250928T235959 "Office" "End-of-year style review"
+
+both: $(TARGET)
+	./$(TARGET) icalendarlib/calendar.ics test_output.json list 20250101T000000 20251231T235959
+	./$(TARGET) icalendarlib/calendar.ics test_output2.json list 20250101T000000 20251231T235959
 # Clean up object files and executable
 clean:
 	rm -f $(OBJ) $(TARGET) *.o *.txt

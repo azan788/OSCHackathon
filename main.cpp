@@ -45,7 +45,7 @@ Event* findEventByUID(ICalendar& cal, const string& uid) {
     }
     return nullptr;
 }
-
+    
 bool modifyEvent(ICalendar& cal, Event* oldEvent,
                  const string& newSummary,
                  const Date& newStart,
